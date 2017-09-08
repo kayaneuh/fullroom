@@ -15,8 +15,12 @@
     <%= f.text_field :fullname, autofocus: true, class: "form-control", placeholder: "Nom complet (prénom + nom)" %>
   </div>
   
+  
   <div class="form-group">
-    <%= f.text_field :school, autofocus: true, class: "form-control", placeholder: "Ton école ou université" %>
+    <label>Ton école ou université</label>
+  <%= f.select :school, [["HEC","HEC"], ["ESSEC","ESSEC"],
+                            ["ESCP", "ESCP"]], id: "school", 
+                            prompt: "A sélectionner...", class: "form-control" %>
   </div>
   
   <div class="form-group">
