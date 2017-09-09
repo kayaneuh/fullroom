@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'rooms/new'
+
+  get 'rooms/edit'
+
+  get 'rooms/show'
+
+  get 'rooms/create'
+
+  get 'rooms/update'
+
+  get 'rooms/index'
+
   devise_for :users,
               :path => '', 
                :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
@@ -20,6 +32,7 @@ Rails.application.routes.draw do
   #   resources :products
   
   resources :users, only: [:show]
+  resources :rooms
   # Example resource route with options:
   #   resources :products do
   #     member do
