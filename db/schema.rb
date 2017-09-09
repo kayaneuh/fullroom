@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909155210) do
+ActiveRecord::Schema.define(version: 20170909165747) do
 
   create_table "rooms", force: :cascade do |t|
     t.string   "school"
@@ -49,6 +49,9 @@ ActiveRecord::Schema.define(version: 20170909155210) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
+    t.text     "summary"
+    t.string   "listing_name"
+    t.boolean  "active"
   end
 
   add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
