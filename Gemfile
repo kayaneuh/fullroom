@@ -34,8 +34,18 @@ gem 'devise-i18n'
 # pour les images
 gem 'paperclip'
 
+# toaster-rails
+gem 'toastr-rails'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+# Use jquery as the JavaScript library
+gem 'jquery-ui-rails'
+
+# traduction des rails
+gem 'rails-i18n'  
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

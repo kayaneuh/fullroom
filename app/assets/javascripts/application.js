@@ -11,7 +11,14 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery-ui
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
 //= require bootstrap-sprockets
+//= require toastr
+
+// permet d'afficher les alerts message en bas à droite avec toastr rails
+toastr.options = {
+ "positionClass": "toast-bottom-right"
+}
