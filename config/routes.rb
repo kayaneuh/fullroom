@@ -33,6 +33,8 @@ Rails.application.routes.draw do
   
   resources :users, only: [:show]
   resources :rooms
+  resources :photos
+  
   # Example resource route with options:
   #   resources :products do
   #     member do
