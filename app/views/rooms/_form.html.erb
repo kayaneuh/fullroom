@@ -19,16 +19,16 @@
                     
                     <div class="col-md-4 select">
                         <div class="form-group">
-                            <label>Type de logement</label>
-                            <%= f.select :room_type, [["place privée","place privée"], ["place partagée","place partagée"]], id: "room_type", 
+                            <label>Type de chambre</label>
+                            <%= f.select :room_type, [["Chambre privée","Chambre privée"], ["Chambre partagée","Chambre partagée"]], id: "room_type", 
                             prompt: "A sélectionner...", class: "form-control" %>
                         </div>
                     </div>
                 
                     <div class="col-md-4 select">
                         <div class="form-group">
-                            <label> Nombre de colocataires maximum ?</label>
-                            <%= f.select :nb_coloc, [["1 colocataire",1], ["2 s",2],
+                            <label> Nombre de colocataires max</label>
+                            <%= f.select :nb_coloc, [["1 colocataire",1], ["2 colocataires",2],
                             ["3 colocataires", 3], ["4 colocataires",4], ["5 colocataires",5], ["6 colocataires",6]], 
                             prompt: "A sélectionner...", class: "form-control" %>
                         </div>
@@ -88,9 +88,8 @@
                            </div>
                        </div>
                  </div>
-            <div id="photos"><%= render 'photos/list' %></div>  
-                    
                 </div>
+                <div id="photos"><%= render 'photos/list' %></div>  
                 
             <div class="row">
                     <div class="form-group">
