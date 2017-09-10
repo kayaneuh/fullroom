@@ -1,0 +1,256 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Devenez hôte FullRoom
+    </div>
+    <div class="panel-body">
+        <div class="container">
+            
+            <%= form_for @room, html: {multipart: true} do |f| %>
+             
+            <div class="row">
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Genre d'habitation</label>
+                            <%= f.select :home_type, [["Maison","Maison"], ["Appartement","Appartement"]], id: "home_type", 
+                            prompt: "A sélectionner...", class: "form-control" %>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Type de logement</label>
+                            <%= f.select :room_type, [["place privée","place privée"], ["place partagée","place partagée"]], id: "room_type", 
+                            prompt: "A sélectionner...", class: "form-control" %>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label> Nombre de colocataires maximum ?</label>
+                            <%= f.select :nb_coloc, [["1 colocataire",1], ["2 s",2],
+                            ["3 colocataires", 3], ["4 colocataires",4], ["5 colocataires",5], ["6 colocataires",6]], 
+                            prompt: "A sélectionner...", class: "form-control" %>
+                        </div>
+                    </div>    
+                     
+                </div>
+                
+            <div class="row">
+                    <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Nombre de places disponibles</label>
+                        <%= f.select :nb_place, [["1 place",1], ["2 places",2],
+                        ["3 places", 3], ["4 places ou plus",4]], 
+                        prompt: "Sélectionner le nombre", class: "form-control" %>
+                    </div>
+                    </div>
+                
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Nombre de salle(s) de bain</label>
+                            <%= f.select :salle_bain, [["1 salle de bain",1], ["2 salles de bain",2],
+                            ["3 salles de bain", 3], ["4 salles de bain ou plus",4]], 
+                            prompt: "Sélectionner le nombre", class: "form-control" %>
+                        </div>
+                    </div>
+                    
+                    
+                     <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Colocation</label>
+                            <%= f.select :sexe, [["Entre hommes","Entre hommes"], ["Entre femmes","Entre femmes"], ["Mixte","Mixte"]],  id: "sexe", 
+                            prompt: "A sélectionner...", class: "form-control" %>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+            <div class="row">
+                    <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Type de bail</label>
+                    <%= f.select :bail, [["A","A"], ["B","B"]],  id: "bail", 
+                            prompt: "A sélectionner...", class: "form-control" %>
+                    </div>
+                    </div>
+                
+            </div>
+                    
+                    
+                </div>
+                
+            <div class="row">
+                    <div class="form-group">
+                        <label>Donnez un nom au logement</label>
+                        <%= f.text_field :listing_name, placeholder: "Titre de l'annonce", class: "form-control" %>
+                    </div>
+                </div>
+                
+            <div class="row">
+                    <div class="form-group">
+                        <label>Résumé</label>
+                        <%= f.text_area :summary, rows:4, placeholder: "Décrivez le décor, l'ambiance, ce qui se trouve à proximité, etc...",
+                        class: "form-control" %>
+                    </div>
+                </div>
+                
+            <div class="row">
+                    <div class="form-group">
+                        <label>Adresse</label>
+                        <%= f.text_field :address, placeholder: "Où est situé votre logement ?", class: "form-control" %>
+                    </div>
+                </div>
+            
+            <div class="row">
+                    <div class="form-group">
+                        <label>Facebook</label>
+                        <%= f.text_field :facebook, placeholder: "Votre facebook", class: "form-control" %>
+                    </div>
+                </div>
+            
+            <div class="row">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <%= f.text_field :email, placeholder: "Votre adresse email de contact", class: "form-control" %>
+                    </div>
+                </div>
+            
+            <div class="row">
+                    <div class="form-group">
+                        <label>Numéro de téléphone</label>
+                        <%= f.text_field :numero, placeholder: "Votre numéro de téléphone", class: "form-control" %>
+                    </div>
+                </div>
+            
+            
+                <div class="row">
+                    <div class="col-md-4 select">
+                    <div class="form-group">
+                        <label>Date de disponibilité</label>
+                    </div>
+                    </div>
+                
+                    <div class="col-md-4 select">
+                        <div class="form-group">
+                            <label>Ton école</label>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                </div>
+            
+            
+            
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= f.check_box :wifi %> Wifi
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :tv %> Télévision
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :ascenceur %> Ascenceur
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :terasse %> Terasse
+                    </div>
+                </div>
+                
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <%= f.check_box :lave_linge %> Lave-linge
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :four %> Four
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :piscine %> Piscine
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :voiture %> Voiture
+                    </div>
+                </div>
+                
+                       <div class="col-md-4">
+                    <div class="form-group">
+                        <%= f.check_box :seche_linge %> Seche-linge
+                    </div>
+                    
+                    <div class="form-group">
+                        <%= f.check_box :machine_laver %> Machine à laver
+                    </div>
+                    
+                </div>
+                
+            </div>
+            
+            <br>
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Taille de l'habitation</label>
+                        <div class="input-group">
+                                <%= f.text_field :taille, placeholder: "ex : 40m²", class: "form-control" %>
+                                <div class="input-group-addon">m²</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>Loyer</label>
+                        <div class="input-group">
+                                <%= f.text_field :price, placeholder: "ex: 45€", class: "form-control" %>
+                                <div class="input-group-addon">€</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label>APL</label>
+                        <div class="input-group">
+                                <%= f.text_field :apl, placeholder: "ex: 45€", class: "form-control" %>
+                                <div class="input-group-addon">€</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                
+            <div class="row">
+                <div class="form-group">
+                    <%= f.check_box :active %> Annonce active
+                </div>
+            </div>
+                
+            <div class="actions">
+                      <%= f.submit "Je valide mon annonce", class: "btn btn-primary"%>
+                    
+                    <!-- poser la question -->
+                    <% if controller.action_name == 'edit' && Rails.env.development? %>
+                      <br /><br /><br />
+                      <%= link_to "Je supprime mon annonce", room_path(@room), method: :delete, data: {confirm: "Supprimer mon annonce?"} %>
+                    <% end %> 
+            </div>
+            <% end %>
+            
+        </div>
+    </div>
+</div>
