@@ -12,9 +12,16 @@ data-target="#navbar" aria-expanded="false" aria-controls="navbar">
         </div>
         <div id="navbar" class="navbar-collapse collapse right">
           <ul class="nav navbar-nav navbar-right">
+            
+            <li>
+             <%= link_to new_room_path do %>
+             <i class="fa fa-home fa-lg"></i> Proposez une coloc
+             <% end %>
+            </li>
+
             <% if (!user_signed_in?) %>
                 <!-- lien vers l'inscription s'il n'est pas inscrit ni connecté -->
-                <li><%= link_to 'Proposez une coloc' , new_user_registration_path %></li>
+                
                 <li><%= link_to 'Inscription', new_user_registration_path %></li>
                 <li><%= link_to 'Connexion', new_user_session_path %></li>
                 
