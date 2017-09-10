@@ -1,2 +1,195 @@
-<h1>Rooms#show</h1>
-<p>Find me in app/views/rooms/show.html.erb</p>
+<div class="panel panel-default">
+    <div class="panel-body">
+        
+        <!-- Photo principale de l'annonce -->
+        <div class="row">
+            <div class="col-md-12">
+                <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length >0 %>
+            </div>
+        </div>
+        
+        <br>
+        
+        <!-- Informations principales -->
+        <div class="row">
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-3 text-center">
+                        <%= image_tag avatar_url(@room.user), class:"img-circle avatar-large" %>
+                        <br>
+                        <br>
+                        <%= @room.user.fullname %>
+                    </div>
+                    <div class="col-md-9">
+                        <h4><%= @room.listing_name %></h4>
+                        <%= @room.address %>
+                        <div class="row text-center row-space-1">
+                            <div class="col-sm-3">
+                                <i class="fa fa-home fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-users fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-bed fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-bath fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-sm-3">
+                                <%= @room.home_type %>
+                            </div>
+                            <div class="col-sm-3">
+                                <%= @room.nb_coloc %> <%= @room.nb_coloc > 1 ? "Colocataires" : "Colocataire" %>
+                            </div>
+                            <div class="col-sm-3">
+                                <%= @room.room_type %>
+                            </div>
+                            <div class="col-sm-3">
+                                <%= @room.salle_bain %> <%= @room.salle_bain > 1 ? "Salles de bain" : "Salle de bain" %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div class="row">
+                    <div class="col-md-9">
+                        <div class="col-md-3 text-center">
+                        <br>
+                        <br>
+                    </div>
+                        <div class="row text-center row-space-1">
+                            <div class="col-sm-3">
+                                <i class="fa fa-transgender fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-check fa-2x"></i>
+                            </div>
+                            <div class="col-sm-3">
+                                <i class="fa fa-file-text-o fa-2x"></i>
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-sm-3">
+                                <%= @room.sexe %>
+                            </div>
+                            <div class="col-sm-3">
+                                <%= @room.nb_place %> <%= @room.nb_place > 1 ? "Places" : "Place" %>
+                            </div>
+                            <div class="col-sm-3">
+                                <%= @room.bail %>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    
+                    
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Formulaire de réservation -->
+            </div>    
+        </div>
+        
+        <!-- taille apl -->
+
+        <div class="row">
+            <div class="col-md-12">
+                <h4>Taille : <%= @room.taille %> m²</h4>
+            </div>
+            <div class="col-md-12">
+                <h4>APL : <%= @room.apl %> €</h4>
+            </div>
+        </div>
+        
+        <!-- Description -->
+        <div class="row">
+            <div class="col-md-12">
+                <h2>A propos de cette colocation</h2>
+                <p><%= @room.summary %></p>
+            </div>
+        </div>
+        
+        
+        <!-- Equipements -->
+        <div class="row">
+            <div class="col-md-2">
+                <p>Equipements</p>
+            </div>
+            <div class="col-md-10">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="equipments">
+                            <li class="<%= 'text-line-through' if !@room.wifi %>">Wifi</li>
+                            <li class="<%= 'text-line-through' if !@room.tv %>">Télévision</li>
+                            <li class="<%= 'text-line-through' if !@room.ascenceur %>">Ascenceur</li>
+                            <li class="<%= 'text-line-through' if !@room.terasse%>">Terasse</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="equipments">
+                            <li class="<%= 'text-line-through' if !@room.lave_linge %>">Lave linge</li>
+                            <li class="<%= 'text-line-through' if !@room.four %>">Four</li>
+                            <li class="<%= 'text-line-through' if !@room.piscine %>">Piscine</li>
+                            <li class="<%= 'text-line-through' if !@room.voiture %>">Voiture</li>
+                        </ul>
+                    </div>
+                    
+                      <div class="col-md-6">
+                        <ul class="equipments">
+                            <li class="<%= 'text-line-through' if !@room.seche_linge %>">Sèche linge</li>
+                            <li class="<%= 'text-line-through' if !@room.machine_laver %>">Machine à laver</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+    <!-- Carrousel -->
+
+        <div class="row">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                          <!-- Indicators -->
+                            <% if @photos %>
+                                <% @photos.each do |photo| %>
+                                  <ol class="carousel-indicators">
+                                    <li data-target="#myCarousel" data-slide-to="<%= photo.id %>" class="active"></li>
+                                  </ol>
+                                <% end %>
+                            <% end %>
+                        
+                          <!-- Wrapper for slides -->
+                          <div class="carousel-inner" role="listbox">
+                            <% if @photos %>
+                            <% @photos.each do |photo| %>
+                            <div class="item <%= 'active' if photo.id == @photos[0].id %>">
+                              <%= image_tag photo.image.url() %>
+                            </div>
+                            <% end %>
+                            <% end %>
+                          </div>
+                        
+                          <!-- Left and right controls -->
+                          <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                            <span class="sr-only">Précédent</span>
+                          </a>
+                          <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                            <span class="sr-only">Suivant</span>
+                          </a>
+                        </div>
+                    </div>
+                </div>
+<!-- Google maps -->
+
+<!-- Logements à proximité -->
+
+
+
+    </div>
+</div>
