@@ -2,34 +2,50 @@ class RoomsController < ApplicationController
   
   before_action :set_room, only: [:show, :edit, :update]
   before_action :authenticate_user!, except: [:show]
+  before_action :require_same_user, only: [:edit, :update]
   
   def new
      @room = current_user.rooms.build
   end
 
   def edit
+    @photos = @room.photos
   end
 
   def show
+    @photos = @room.photos 
   end
 
   def create
           @room = current_user.rooms.build(room_params)
       if @room.save
-            redirect_to @room, notice:"Votre annonce a été ajouté avec succès" #redirige vers la page de l’annonce et notifie l’utilisateur de la réussite de la création
+        if params[:images]
+       params[:images].each do |i|
+            @room.photos.create(image: i)
+          end
+      end
+       @photos = @room.photos
+            redirect_to edit_room_path(@room), notice:"Votre logement a été ajouté"
       else
            render :new # s’il y a une erreur, redirige vers la page de création new
 
       end
     end
 
-  def update
-           if @room.update(room_params)
-              redirect to @room, notice:"Modification enregistrée..."
-       else
-           render :edit
+      def update
+        if @room.update(room_params)
+            if params[:images]
+                params[:images].each do |i|
+                @room.photos.create(image: i)
+            end
        end
-  end
+            @photos = @room.photos
+            redirect_to edit_room_path(@room), notice:"Modification enregistrée..."
+            
+        else
+            render :edit
+    end
+    end
 
   def index
     @rooms = current_user.rooms 
@@ -44,5 +60,12 @@ class RoomsController < ApplicationController
       def room_params
 
           params.require(:room).permit(:school, :address, :sexe, :room_type, :home_type, :nb_place, :nb_coloc, :price, :start_date, :bail, :apl, :tv, :wifi, :ascenceur, :terasse, :lave_linge, :four, :piscine, :voiture, :seche_linge, :machine_laver, :taille, :salle_bain, :description, :fumeur, :sportif, :fetard, :chill, :worker, :numero, :email, :facebook, :summary, :listing_name, :active)
- end
+      end
+ 
+      def require_same_user
+          if current_user.id != @room.user_id
+             flash[:danger] = "Vous n'avez pas le droit de modifier cette page"
+               redirect_to root_path
+          end
+      end
 end
