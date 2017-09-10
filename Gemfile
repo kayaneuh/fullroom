@@ -49,7 +49,8 @@ gem 'rails-i18n'
 # amélioration bootstrap
 gem 'font-awesome-sass'
 
-
+# google map
+gem 'geocoder'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

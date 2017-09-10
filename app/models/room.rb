@@ -16,4 +16,10 @@ class Room < ActiveRecord::Base
   validates :listing_name, presence: true, length: {maximum: 75}
   
   has_many :photos 
+  
+   # gem geocoder google map
+  geocoded_by :address
+  # si l'adresse change, geocode va convertir l'adresse en latitude longitude
+  after_validation :geocode, if: :address_changed?
+
 end
