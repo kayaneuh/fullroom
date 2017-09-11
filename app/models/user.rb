@@ -15,4 +15,5 @@ class User < ActiveRecord::Base
   
 # un user peut avoir plusieurs annonces (rooms)
   has_many :rooms
+  has_many :reservations 
 end

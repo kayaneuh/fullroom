@@ -16,6 +16,7 @@ class Room < ActiveRecord::Base
   validates :listing_name, presence: true, length: {maximum: 75}
   
   has_many :photos 
+  has_many :reservations 
   
    # gem geocoder google map
   geocoded_by :address
