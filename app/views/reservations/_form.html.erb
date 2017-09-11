@@ -1,10 +1,30 @@
 <%= form_for([@room, @room.reservations.new]) do |f| %>     
 
+<!-- affichage de prix -->
+<div class="row">
+        <div class="col-md-12 price_tag">
+            <span>€ <%= @room.price %></span>
+            <span class="pull-right">Par nuit</span>
+        </div>
+    </div>
+    
+<div class="row">
+
+         <div class="col-md-6">
+
+         <label>Facebook</label>
+         </div>
+
+         <div class="col-md-6">
+
+         <label>Email</label>
+         </div>
+
+ </div>
+ 
      <%= f.hidden_field :room_id, value: @room.id %> <!-- champs caché pour renseigner l’id du logement et le prix -->
      <%= f.hidden_field :price, value: @room.price %>
-
  <br>
-
-     <%= f.submit "Demande de réservation ", class: "btn btn-primary" %>
+     <%= f.submit "Demande de réservation ", class: "btn btn-primary wide" %>
 
  <% end %>
