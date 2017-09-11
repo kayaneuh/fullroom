@@ -8,6 +8,9 @@ def create
       redirect_to @reservation.room, notice: "Votre réservation a été acceptée"
 end
 
+def your_trips
+       @trips = current_user.reservations 
+end
   
 private
 

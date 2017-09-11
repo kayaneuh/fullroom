@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   get 'rooms/update'
 
   get 'rooms/index'
-
+  
+  get '/your_trips' => 'reservations#your_trips'
+  
   devise_for :users,
               :path => '', 
                :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
