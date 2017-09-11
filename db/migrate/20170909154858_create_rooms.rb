@@ -30,7 +30,7 @@ class CreateRooms < ActiveRecord::Migration
       t.string :fetard
       t.string :chill
       t.string :worker
-      t.integer :numero
+      t.string :numero
       t.string :email
       t.string :facebook
 

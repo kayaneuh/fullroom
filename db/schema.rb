@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170909155210) do
+ActiveRecord::Schema.define(version: 20170910205635) do
+
+  create_table "photos", force: :cascade do |t|
+    t.integer  "room_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+  end
+
+  add_index "photos", ["room_id"], name: "index_photos_on_room_id"
 
   create_table "rooms", force: :cascade do |t|
     t.string   "school"
@@ -49,6 +61,11 @@ ActiveRecord::Schema.define(version: 20170909155210) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
+    t.text     "summary"
+    t.string   "listing_name"
+    t.boolean  "active"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "rooms", ["user_id"], name: "index_rooms_on_user_id"
