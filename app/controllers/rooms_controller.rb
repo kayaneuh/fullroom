@@ -47,7 +47,7 @@ class RoomsController < ApplicationController
     end
     end
 
-  def index
+  def annonces
     @rooms = current_user.rooms 
   end
   
