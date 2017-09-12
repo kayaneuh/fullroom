@@ -32,6 +32,12 @@ Rails.application.routes.draw do
   #     end
   #   end
 
+resources :conversations, only: [:index, :create] do
+
+       resources :messages, only: [:index, :create]
+
+ end
+
   # Example resource route with sub-resources:
   #   resources :products do
   #     resources :comments, :sales
