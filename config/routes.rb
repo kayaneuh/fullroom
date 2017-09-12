@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   get 'rooms/update'
 
   get 'rooms/index'
-
+  
+  get '/your_trips' => 'reservations#your_trips'
+  
+  get '/your_reservations' => 'reservations#your_reservations'
+  
   devise_for :users,
               :path => '', 
                :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
@@ -32,7 +36,10 @@ Rails.application.routes.draw do
   #   resources :products
   
   resources :users, only: [:show]
-  resources :rooms
+  resources :rooms do
+              resources :reservations, only: [:create]
+   end
+   
   resources :photos
   # Example resource route with options:
   #   resources :products do
