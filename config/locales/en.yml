@@ -27,28 +27,27 @@ fr:
           attributes:
             price:
             address:
-            summary:
+            sexe:
+            school:
+            bail:
+            apl:
             listing_name:
-            bath_room:
-            bed_room:
-            accommodate:
+            nb_place:
+            nb_coloc:
             room_type:
             home_type:
+            email:
     attributes:
         room:
             price: "Le prix"
-            address:  "L'adresse"
+            address: "L'adresse"
             sexe: "Le sexe des colocataires"
             school: "L'école"
-            start_date: "La date de disponibilité"
             bail: "Le type de bail"
             apl: "Les apl"
-            taille: "La taille en m²"
-            summary: "La description"
             listing_name: "Le nom de l'annonce"
-            salle_bain: "Le nombre de salles de bain"
             nb_place: "Le nombre de places"
             nb_coloc: "Le nombre de colocataires"
-            accommodate: "Le nombre de voyageurs"
             room_type: "Le type de logement"
             home_type: "Le genre d'habitation"
+            email: "L'adresse email"
