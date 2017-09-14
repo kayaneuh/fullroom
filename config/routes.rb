@@ -49,7 +49,11 @@ Rails.application.routes.draw do
   #       get 'short'
   #       post 'toggle'
   #     end
-  #
+  resources :conversations, only: [:index, :create] do
+
+       resources :messages, only: [:index, :create]
+
+ end
   #     collection do
   #       get 'sold'
   #     end
