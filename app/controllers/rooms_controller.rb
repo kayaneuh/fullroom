@@ -25,7 +25,7 @@ class RoomsController < ApplicationController
           end
       end
        @photos = @room.photos
-            redirect_to edit_room_path(@room), notice:"Votre logement a été ajouté"
+            redirect_to room_path(@room), notice:"Votre logement a été ajouté"
       else
            render :new # s’il y a une erreur, redirige vers la page de création new
 
@@ -50,6 +50,16 @@ class RoomsController < ApplicationController
   def annonces
     @rooms = current_user.rooms 
   end
+  
+  def index
+@q = Room.ransack(params[:q])
+if params[:q].present?
+
+@rooms = @q.result
+render 'search'
+end
+  end  
+
   
   private
 
