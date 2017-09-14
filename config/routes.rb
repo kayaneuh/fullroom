@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get 'rooms/create'
 
   get 'rooms/update'
-
+  
   get 'rooms/index'
+
+  get 'rooms/annonces'
   
   get '/your_trips' => 'reservations#your_trips'
   

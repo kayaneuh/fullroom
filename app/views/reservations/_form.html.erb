@@ -10,13 +10,20 @@
     
 <div class="row">
 
-         
+         <div class="row">
+        <div class="col-md-6">
+        <% if (user_signed_in?) %>
+            <% else %>
+        <%="Veuillez-vous connecter pour afficher :" %>
+        <%end%>
+        </div>
+         </div>
          <div class="row">
          <div class="col-md-6">
-         <label>Facebook</label>
+         <label>Facebook :</label>
          </div>
         <div class="col-md-6">
-         <label>Email</label>
+         <label>Email :</label>
          </div>
          </div>
          
@@ -32,7 +39,7 @@
             <% if (user_signed_in?) %>
                 <%= @room.email %>
                 <% else %>
-            <%="Veuillez-vous connecter pour voir l'email et/ou le facebook" %>
+            
             <%end%>
          </div>
          </div>
@@ -40,7 +47,7 @@
 
          <div class="row">
          <div class="col-md-6">
-            <label>Téléphone</label>
+            <label>Téléphone :</label>
          </div>
         <div class="col-md-6">
          </div>
