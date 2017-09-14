@@ -5,6 +5,7 @@
         <div class="row">
             <div class="col-md-12">
                 <%= image_tag @photos[0].image.url(), class:"img-responsive" if @photos.length >0 %>
+            
             </div>
         </div>
         
@@ -21,46 +22,44 @@
                         <%= @room.user.fullname %>
                     </div>
                     <div class="col-md-9">
-                        <h4><%= @room.listing_name %></h4>
-                        <%= @room.address %>
+                        <h3><%= @room.listing_name %></h3>
+                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> <%= @room.address %></p>
+                        <p><i class="fa fa-graduation-cap" aria-hidden="true"></i> Près de: <%= @room.school %></p>
+                        <br>
                         <div class="row text-center row-space-1">
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
                                 <i class="fa fa-home fa-2x"></i>
+                            </div>
+                              <div class="col-sm-3">
+                                <i class="fa fa-arrows-alt fa-2x"></i>
                             </div>
                             <div class="col-sm-3">
                                 <i class="fa fa-users fa-2x"></i>
-                            </div>
-                            <div class="col-sm-3">
-                                <i class="fa fa-bed fa-2x"></i>
                             </div>
                             <div class="col-sm-3">
                                 <i class="fa fa-bath fa-2x"></i>
                             </div>
                         </div>
                         <div class="row text-center">
-                            <div class="col-sm-3">
+                            <div class="col-sm-2">
                                 <%= @room.home_type %>
                             </div>
                             <div class="col-sm-3">
-                                <%= @room.nb_coloc %> <%= @room.nb_coloc > 1 ? "Colocataires" : "Colocataire" %>
+                                Surface : <%= @room.taille %> m²
                             </div>
                             <div class="col-sm-3">
-                                <%= @room.room_type %>
+                                <%= @room.nb_coloc %> <%= @room.nb_coloc > 1 ? "Colocataires au total" : "Colocataire au total" %>
                             </div>
+
                             <div class="col-sm-3">
                                 <%= @room.salle_bain %> <%= @room.salle_bain > 1 ? "Salles de bain" : "Salle de bain" %>
                             </div>
                         </div>
-                    </div>
-                </div>
-                    
-                    <div class="row">
-                    <div class="col-md-9">
-                        <div class="col-md-3 text-center">
                         <br>
-                        <br>
-                    </div>
-                        <div class="row text-center row-space-1">
+                            <div class="row text-center row-space-1">
+                            <div class="col-sm-2">
+                                <i class="fa fa-bed fa-2x"></i>
+                            </div>
                             <div class="col-sm-3">
                                 <i class="fa fa-transgender fa-2x"></i>
                             </div>
@@ -71,21 +70,23 @@
                                 <i class="fa fa-file-text-o fa-2x"></i>
                             </div>
                         </div>
-                        <div class="row text-center">
+                        
+                            <div class="row text-center">
+                            <div class="col-sm-2">
+                                <%= @room.room_type %>
+                            </div>
                             <div class="col-sm-3">
                                 <%= @room.sexe %>
                             </div>
                             <div class="col-sm-3">
-                                <%= @room.nb_place %> <%= @room.nb_place > 1 ? "Places" : "Place" %>
+                                <%= @room.nb_place %> <%= @room.nb_place > 1 ? "Places disponibles" : "Place disponible" %>
                             </div>
                             <div class="col-sm-3">
-                                <%= @room.bail %>
+                                Type de bail : <%= @room.bail %>
                             </div>
                         </div>
+                        
                     </div>
-                    
-                    
-                    
                 </div>
             </div>
             <div class="col-md-4">
@@ -94,27 +95,20 @@
             </div>    
         </div>
         
-        <!-- taille apl -->
-
-        <div class="row">
-            <div class="col-md-12">
-                <h4>Taille : <%= @room.taille %> m²</h4>
-            </div>
-            <div class="col-md-12">
-                <h4>APL : <%= @room.apl %> €</h4>
-            </div>
-        </div>
         
         <!-- Description -->
+        <br>
         <div class="row">
             <div class="col-md-12">
-                <h2>A propos de cette colocation</h2>
-                <p><%= @room.summary %></p>
+                <h3>A propos de cette colocation</h3>
+                <%= @room.summary %>
             </div>
+                        
         </div>
         
         
         <!-- Equipements -->
+        <br>
         <div class="row">
             <div class="col-md-2">
                 <p>Equipements</p>
@@ -123,25 +117,25 @@
                 <div class="row">
                     <div class="col-md-6">
                         <ul class="equipments">
-                            <li class="<%= 'text-line-through' if !@room.wifi %>">Wifi</li>
-                            <li class="<%= 'text-line-through' if !@room.tv %>">Télévision</li>
-                            <li class="<%= 'text-line-through' if !@room.ascenceur %>">Ascenceur</li>
-                            <li class="<%= 'text-line-through' if !@room.terasse%>">Terasse</li>
+                            <li class="<%= 'text-line-through' if !@room.wifi %>"><i class="fa fa-wifi" aria-hidden="true"></i> Wifi</li>
+                            <li class="<%= 'text-line-through' if !@room.tv %>"><i class="fa fa-television" aria-hidden="true"></i> Télévision</li>
+                            <li class="<%= 'text-line-through' if !@room.ascenceur %>"><i class="fa fa-arrows-v" aria-hidden="true"></i> Ascenceur</li>
+                            <li class="<%= 'text-line-through' if !@room.terasse%>"><i class="fa fa-tree" aria-hidden="true"></i> Terrasse</li>
                         </ul>
                     </div>
                     <div class="col-md-6">
                         <ul class="equipments">
-                            <li class="<%= 'text-line-through' if !@room.lave_linge %>">Lave linge</li>
-                            <li class="<%= 'text-line-through' if !@room.four %>">Four</li>
-                            <li class="<%= 'text-line-through' if !@room.piscine %>">Piscine</li>
-                            <li class="<%= 'text-line-through' if !@room.voiture %>">Voiture</li>
+                            <li class="<%= 'text-line-through' if !@room.lave_linge %>"><i class="fa fa-superpowers" aria-hidden="true"></i> Lave linge</li>
+                            <li class="<%= 'text-line-through' if !@room.four %>"><i class="fa fa-fire" aria-hidden="true"></i> Four</li>
+                            <li class="<%= 'text-line-through' if !@room.piscine %>"><i class="fa fa-sun-o" aria-hidden="true"></i> Piscine</li>
+                            <li class="<%= 'text-line-through' if !@room.voiture %>"><i class="fa fa-car" aria-hidden="true"></i> Voiture</li>
                         </ul>
                     </div>
                     
                       <div class="col-md-6">
                         <ul class="equipments">
-                            <li class="<%= 'text-line-through' if !@room.seche_linge %>">Sèche linge</li>
-                            <li class="<%= 'text-line-through' if !@room.machine_laver %>">Machine à laver</li>
+                            <li class="<%= 'text-line-through' if !@room.seche_linge %>"><i class="fa fa-superpowers" aria-hidden="true"></i> Sèche linge</li>
+                            <li class="<%= 'text-line-through' if !@room.machine_laver %>"><i class="fa fa-superpowers" aria-hidden="true"></i> Machine à laver</li>
                         </ul>
                     </div>
                     
@@ -150,7 +144,7 @@
         </div>
         
     <!-- Carrousel -->
-
+        <br>
         <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -187,6 +181,7 @@
                     </div>
                 </div>
 <!-- Google maps -->
+     <br>
      <div class="row">
             <div class="col-md-12">
                 <div id="map"></div>
@@ -194,7 +189,10 @@
                 <style>
                    #map {
                     height: 400px;
-                    width: 100%;
+                    width: 70%;
+                    display: block;
+                    margin-left: auto;
+                    margin-right: auto;
                    }
                 </style>
                 
