@@ -34,15 +34,14 @@ data-target="#navbar" aria-expanded="false" aria-controls="navbar">
               <span class="caret"></span></a>
               <ul class="dropdown-menu">
                 <!-- ajout d'annonces dans une liste : Mes contacts / Mes colocations -->
-                <li><%= link_to "Mes favoris", root_path %></li>
                 <li><%= link_to 'Modifier mon profil', edit_user_registration_path %></li>
                 <li role="separator" class="divider"></li>
                 <li><%= link_to 'Déconnexion', destroy_user_session_path, 
 method: :delete %></li>
                 <li><%= link_to "Mes annonces", rooms_annonces_path %></li>
-                <li><%= link_to "Mes réservations", your_reservations_path %></li>
+                <li><%= link_to "Mes annonces mises en favoris", your_reservations_path %></li>
                 <li><%= link_to conversations_path do %>Messages<% end %></li>
-                <li><%= link_to "Mes voyages", your_trips_path %></li>
+                <li><%= link_to "Mes favoris", your_trips_path %></li>
               </ul>
             </li>
             <% end %>
