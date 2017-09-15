@@ -20,10 +20,10 @@
          </div>
          <div class="row">
          <div class="col-md-6">
-         <label>Facebook :</label>
+         <label><i class="fa fa-facebook-square" aria-hidden="true"></i> Facebook :</label>
          </div>
         <div class="col-md-6">
-         <label>Email :</label>
+         <label><i class="fa fa-envelope-square" aria-hidden="true"></i> Email :</label>
          </div>
          </div>
          
@@ -31,7 +31,7 @@
          <div class="row">
          <div class="col-md-6">
             <% if (user_signed_in?) %>
-                <a href="<%= @room.facebook %>" target="_blank">Cliquez-ici</a>
+                <a href="<%= @room.facebook %>" target="_blank">Lien facebook</a>
                 <% else %>
             <%end%>
          </div>
@@ -52,7 +52,7 @@
 
          <div class="row">
          <div class="col-md-6">
-            <label>Téléphone :</label>
+            <label><i class="fa fa-phone-square" aria-hidden="true"></i> Téléphone :</label>
          </div>
         <div class="col-md-6">
          </div>
@@ -73,7 +73,7 @@
      <%= f.hidden_field :room_id, value: @room.id %> <!-- champs caché pour renseigner l’id du logement et le prix -->
      <%= f.hidden_field :price, value: @room.price %>
  <br>
-     <%= f.submit "Demande de réservation ", class: "btn btn-primary wide" %>
+     <%= f.submit "Ajouter à mes favoris", class: "btn btn-primary wide" %>
 
  <% end %>
  
