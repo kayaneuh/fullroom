@@ -327,3 +327,46 @@ input[type="checkbox"]:checked:before {
      background-color: #F4F4F5;
 
  } 
+ 
+ 
+ /* HOMEPAGE CSS*/
+ 
+.jumbotron {
+  background-image: url("http://static.booking.weekendesk.fr/image_cache/A773000/773815/773815_1920_595_FSImage_1_EDIT_marseille2.jpg");
+  padding-top: 6rem;
+   padding-bottom: 6rem;
+   margin-bottom: 0;
+   background-color: #fff;
+   height: 450px;
+ }
+ 
+ .jumbotron p:last-child {
+   margin-bottom: 0;
+ }
+ 
+ .jumbotron-heading {
+   font-weight: 200;
+ }
+ 
+ .jumbotron .container {
+   max-width: 40rem;
+ }
+ 
+ /* FOOTER DU MODEL */
+ 
+ footer {
+   padding-top: 3rem;
+   padding-bottom: 3rem;
+ }
+ 
+ footer p {
+   margin-bottom: .25rem;
+   font-size: 100%;
+ }
+ 
+ #sloganetsearch {
+   margin-left: auto;
+   margin-right: auto;
+  width: 450px;
+ }
+ 
