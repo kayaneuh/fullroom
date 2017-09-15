@@ -1,11 +1,14 @@
-<table>
-  <thead>
-    <tr>
-      <th><%= sort_link(@q, :school) %></th>
-    </tr>
-  </thead>
-  </tbody>
-</table>
+<section class="window">
+<div class="container">
+        <table class="resultats">
+          <thead>
+            <tr>
+              <th>Voici le résultat de vos recherches selon le critère :</th>
+              <th><%= sort_link(@q, :school) %></th>
+            </tr>
+          </thead>
+          </tbody>
+        </table>
 <% @rooms.each do |room| %>
         <div class="col-md-4">
             <div class="panel panel-default">
@@ -19,3 +22,5 @@
             </div>
         </div>
     <% end %>
+</div>
+</section>
