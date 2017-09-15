@@ -37,7 +37,7 @@
 body {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   overflow-x: hidden;
-  background-color: #18BC9C;
+  background-color: white;
 }
 p {
   font-size: 20px;
@@ -338,6 +338,8 @@ input[type="checkbox"]:checked:before {
    margin-bottom: 0;
    background-color: #fff;
    height: 450px;
+   width: 100%;
+   position: relative;
  }
  
  .jumbotron p:last-child {
@@ -349,7 +351,7 @@ input[type="checkbox"]:checked:before {
  }
  
  .jumbotron .container {
-   max-width: 40rem;
+  
  }
  
  /* FOOTER DU MODEL */

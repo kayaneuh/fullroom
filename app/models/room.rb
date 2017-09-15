@@ -12,8 +12,12 @@ class Room < ActiveRecord::Base
   validates :nb_place, numericality: { only_integer: true }
   validates :nb_coloc, numericality: { only_integer: true }
   validates :price, numericality: { only_integer: true, greater_than: 5 }
-  validates :apl, numericality: { only_integer: true }
   validates :listing_name, presence: true, length: {maximum: 75}
+  
+  validates :salle_bain, numericality: { only_integer: true }
+  validates :start_date, presence: true
+  validates :taille, numericality: { only_integer: true, greater_than: 5 }
+  validates :price, numericality: { only_integer: true, greater_than: 5 }
   
   has_many :photos 
   has_many :reservations 

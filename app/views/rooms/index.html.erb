@@ -3,18 +3,16 @@
          <div id="sloganetsearch">
          <h2 class="jumbotron-heading">Trouvez votre future colocation</h2>
         <p class="lead text-muted"></p>
-       <p>
-           <a href="#" class="btn btn-primary">Main call to action</a>
-           <a href="#" class="btn btn-secondary">Secondary action</a>
-         </p>
+        <div>
+           <%= search_form_for @q do |f| %>
+  <%= f.search_field :school_cont,id:"tags", class:"form-control" %>
+  <%= f.submit "Rechercher",  class: "btn btn-primary"%>
+          </div>
          </div>
        </div>
  +</section> 
  <div class="row">
         <div class="col-md-6">
-<%= search_form_for @q do |f| %>
-  <%= f.search_field :school_cont,id:"tags", class:"form-control" %>
-  <%= f.submit "Rechercher",  class: "btn btn-primary"%>
   </end>
   </end>
 <% end %>
