@@ -8,7 +8,10 @@ class Room < ActiveRecord::Base
   validates :room_type, presence: true
   validates :home_type, presence: true
   validates :bail, presence: true
-  validates :email, presence: true
+  
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX }
   validates :nb_place, numericality: { only_integer: true }
   validates :nb_coloc, numericality: { only_integer: true }
   validates :price, numericality: { only_integer: true, greater_than: 5 }
@@ -19,6 +22,7 @@ class Room < ActiveRecord::Base
   validates :taille, numericality: { only_integer: true, greater_than: 5 }
   validates :price, numericality: { only_integer: true, greater_than: 5 }
   
+
   has_many :photos 
   has_many :reservations 
   
