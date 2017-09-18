@@ -92,7 +92,10 @@
             <div class="col-md-4">
                 <!-- Formulaire de réservation -->
                 <%= render 'reservations/form' %>  
-            </div>    
+                <br>
+            <%= link_to "Envoyer un message", conversations_path(sender_id: current_user.id, recipient_id: @room.user.id), method: 'post', class: "btn btn-primary wide" %>
+            </div>
+
         </div>
         
         
