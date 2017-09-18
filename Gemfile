@@ -67,6 +67,9 @@ gem 'rails-timeago'
 #gem search engine
 gem 'ransack'
 
+
+#gem pour stockage d'images
+gem 'paperclip-cloudinary'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
