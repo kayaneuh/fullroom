@@ -22,5 +22,13 @@ $( function() {
     source: availableTags
   });
   $("#tags").attr("placeholder", "Ton école");
+  $("#tags").blur(function(){
+    val = $("#tags").val();
+    if (availableTags.includes(val) == false ){
+      $("#tags").val("");
+      alert("veuillez");
+    }
+
+  });
 } );
 </script>

@@ -54,7 +54,7 @@ class RoomsController < ApplicationController
   def index
 @q = Room.ransack(params[:q])
 if params[:q].present?
-
+@school_cont = params[:q][:school_cont]
 @rooms = @q.result
 render 'search'
 end
