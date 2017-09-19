@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   
   get '/your_reservations' => 'reservations#your_reservations'
   
+  get 'pages/aidezmoi'
+  
+  get 'pages/charte'
+  get 'pages/informations'
+  get 'pages/conditions'
   devise_for :users,
               :path => '', 
                :path_names => {:sign_in => 'login', :sign_out => 'logout', :edit => 'profile'},
